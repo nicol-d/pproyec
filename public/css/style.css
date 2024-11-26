@@ -1,0 +1,194 @@
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Variables de color */
+:root {
+    --color-1: #86eee4; /* Fondo principal */
+    --color-2: #5278a7; /* Textos importantes */
+    --color-3: #ecfffd; /* Fondo secundario */
+    --color-4: #515a5a; /* Textos oscuros */
+    --color-5: #9dc5f5; /* Detalles */
+    --color-6: #2e4053; /* Textos apagados */
+}
+
+/* Estilo general del body */
+body {
+    background: linear-gradient(to bottom, var(--color-1), var(--color-5));
+    height: 100vh;
+    font-family: "Montserrat", "sans-serif";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal */
+.container {
+    width: 90%;
+    background-color: var(--color-3);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de perfil */
+.perfil {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.perfil h1 {
+    color: var(--color-2);
+    font-size: 2rem;
+}
+
+.perfil span {
+    color: var(--color-6);
+    letter-spacing: 1px;
+    font-size: 1rem;
+}
+
+#fecha {
+    color: var(--color-4);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/* Sección para agregar tareas */
+.agregar-tarea {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.agregar-tarea input {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--color-3);
+    padding: 0 10px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.agregar-tarea input::placeholder {
+    font-size: 1rem;
+    color: var(--color-5);
+}
+
+.agregar-tarea button {
+    border: none;
+    background-color: var(--color-2);
+    color: var(--color-3);
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.agregar-tarea button:hover {
+    transform: scale(1.1);
+}
+
+.agregar-tarea i {
+    display: none; /* Ocultar el icono dentro del botón */
+    font-size: 1.5rem;
+}
+
+/* Sección de tareas */
+.seccion-tarea h3 {
+    color: var(--color-4);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.seccion-tarea ul {
+    list-style: none;
+}
+.listas-tareas {
+    display: flex;
+    flex-direction: row;
+}	
+.seccion-tarea li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-5);
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: var(--color-3);
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.seccion-tarea li.removed {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.seccion-tarea li .text {
+    flex: 1;
+    margin: 0 10px;
+    font-size: 1rem;
+    word-break: break-word;
+    outline: none;
+}
+
+.seccion-tarea li .text.line-through {
+    text-decoration: line-through;
+    color: var(--color-4);
+}
+
+.seccion-tarea li i {
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.seccion-tarea li i:hover {
+    transform: scale(1.2);
+}
+
+.seccion-tarea ul p {
+    font-size: 1rem;
+    text-align: center;
+    color: var(--color-6);
+}
+
+/* Responsividad para dispositivos móviles */
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .agregar-tarea input {
+        font-size: 0.9rem;
+        height: 35px;
+    }
+
+    .agregar-tarea i {
+        font-size: 1.2rem;
+    }
+
+    .seccion-tarea li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .seccion-tarea li .text {
+        margin: 10px 0;
+    }
+
+    .seccion-tarea li i {
+        margin: 5px 0;
+    }
+}
